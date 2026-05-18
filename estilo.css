@@ -46,15 +46,6 @@ header nav ul li img{
     object-fit: contain;
 }
 
-@media (max-width: 689px) {
-    header nav ul li:nth-child(3){
-        display: none;
-    }
-}
-
-
-
-
 /*-- FIM ESTILIZAÇÂO HEADER FIXO --*/
 
 
