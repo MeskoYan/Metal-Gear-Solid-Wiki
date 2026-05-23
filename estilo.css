@@ -14,11 +14,8 @@ header{
     padding: 1rem;
     position: sticky;
     top: 0;
+    left: 0;
     z-index: 0;
-    background-image: url(./images/header/background_header.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
 }
 
 header nav ul{
