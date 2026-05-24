@@ -11,7 +11,8 @@
 </head>
 <body>
     <header class="header-fixo">
-        <img src="imagens/logo.png" alt="Metal Gear Solid Logo" class="logo">
+        <audio src="./imagens/sound_alert.mp3" id="som-alerta"></audio>
+        <img src="imagens/logo.png" alt="Metal Gear Solid Logo" class="logo" style="cursor: pointer;" onclick="document.getElementById('som-alerta').play()">
         <nav>
             <ul>
                 <li><a href="index.html" class="ativo">Início</a></li>
