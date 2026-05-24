@@ -1,6 +1,8 @@
-/* =========================================================
-   RESET BÁSICO E SETUP DO STICKY FOOTER
-========================================================= */
+/*
+================================
+-- COMEÇO ESTILIZAÇÃO GERAL -- =
+================================
+*/
 * {
     margin: 0;
     padding: 0;
@@ -11,72 +13,106 @@
 body {
     background-color: #f4f4f4;
     color: #333;
-    /* Exigência 7: Uso de min-width  */
+
     min-width: 320px; 
 
-    /* Configuração do Sticky Footer com Flexbox */
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
+/*
+=============================
+-- FIM ESTILIZAÇÃO GERAL -- =
+=============================
+*/
 
-/* =========================================================
-   ELEMENTO QUE ACOMPANHA O SCROLL (Exigências 9) [cite: 31, 32, 33]
-   Este header usa a propriedade "position: sticky" junto com
-   "top: 0" para ficar fixo no topo da página ao rolar o scroll.
-   Também utiliza outras propriedades de layout como z-index,
-   display (flex), align-items e justify-content.
-========================================================= */
+
+
+/*
+===================================================
+-- COMEÇO ESTILIZAÇÃO HEADER FIXO TOPO DA TELA -- =
+===================================================
+*/
 .header-fixo {
+    /*-- HEADER FIXO ACOMPANHA SCROLL --*/
     position: sticky;
     top: 0;
     z-index: 1000;
+
     background-color: #1a1a1a;
     color: white;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* Exigência 7: Trabalhar com unidades relativas (em/%)  */
+
     padding: 1em 5%;
 }
 
 .header-fixo .logo {
     max-width: 150px;
 }
+/*
+================================================
+-- FIM ESTILIZAÇÃO HEADER FIXO TOPO DA TELA -- =
+================================================
+*/
 
+
+
+/*
+=================================
+-- COMEÇO ESTILIZAÇÃO NAVBAR -- =
+=================================
+*/
 nav ul {
     list-style: none;
+
     display: flex;
     gap: 1.5em;
 }
 
 nav ul li a {
+    cursor: pointer; 
+
     color: #ccc;
     text-decoration: none;
     font-weight: bold;
+
     padding: 0.5em;
-    /* Exigência 3: Utilizar a propriedade cursor no menu [cite: 12] */
-    cursor: pointer; 
+    
 }
 
+ /*página ativa*/
 nav ul li a:hover,
 nav ul li a.ativo {
     color: #ffcc00;
-    border-bottom: 2px solid #ffcc00; /* Exigência 3: Menu indica página ativa [cite: 12] */
+    border-bottom: 2px solid #ffcc00;
 }
+/*
+==============================
+-- FIM ESTILIZAÇÃO NAVBAR -- =
+==============================
+*/
 
-/* =========================================================
-   CONTAINER PRINCIPAL (Expande para empurrar o Footer)
-========================================================= */
+
+
+/*
+======================================
+-- COMEÇO ESTILIZAÇÃO DE CONTEÚDO -- =
+======================================
+*/
+
 .container {
-    /* Exigência 7: Uso de max-width  */
     max-width: 1200px;
     margin: 2em auto;
+
     padding: 0 5%;
+
     display: flex;
     flex-wrap: wrap;
     gap: 2em;
-    /* Faz o conteúdo principal preencher o espaço restante, empurrando o footer para baixo */
+
     flex: 1; 
 }
 
@@ -95,10 +131,20 @@ nav ul li a.ativo {
     border-radius: 8px;
     overflow: hidden; 
 }
+/*
+===================================
+-- FIM ESTILIZAÇÃO DE CONTEÚDO -- =
+===================================
+*/
 
-/* =========================================================
-   PÁGINA 2 - TABELA DOS JOGOS [cite: 14, 15, 16]
-========================================================= */
+
+
+/*
+=========================================
+-- COMEÇO PÁGINA 2 - TABELA DE JOGOS -- =
+=========================================
+*/
+
 .tabela-jogos {
     width: 100%;
     border-collapse: collapse;
@@ -112,7 +158,6 @@ nav ul li a.ativo {
     text-align: center;
 }
 
-/* Exigência 4: Cabeçalho estilizado diferente das demais linhas [cite: 15] */
 .tabela-jogos th {
     background-color: #1a1a1a;
     color: white;
@@ -123,15 +168,24 @@ nav ul li a.ativo {
     text-transform: uppercase;
 }
 
-/* Exigência 4: Ao passar o cursor, a formatação da tabela muda [cite: 16] */
 .tabela-jogos tbody tr:hover {
     background-color: #fff3cd;
     cursor: crosshair;
 }
 
-/* =========================================================
-   PÁGINA 3 - LISTA DE PERSONAGENS (CARDS) [cite: 18, 19, 20]
-========================================================= */
+/*
+======================================
+-- FIM PÁGINA 2 - TABELA DE JOGOS -- =
+======================================
+*/
+
+
+
+/*
+==============================================
+-- COMEÇO PÁGINA 3 - LISTA DE PERSONAGENS -- =
+==============================================
+*/
 .largura-total {
     width: 100%;
 }
@@ -148,24 +202,27 @@ nav ul li a.ativo {
 
 .lista-personagens li {
     background-color: #ffffff;
+
     border: 1px solid #ccc;
     border-radius: 8px;
+
     overflow: hidden; 
     width: calc(25% - 1.5em); 
     min-width: 250px; 
+
     display: flex;
     flex-direction: column;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    
-    /* Exigência 5: Propriedade transition ao passar pelos itens [cite: 20] */
+
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+
 }
 
 .lista-personagens li img {
     width: 100%;
     height: 220px;
     object-fit: cover;
-    object-position: top; /* <-- Esta é a propriedade mágica que foca no rosto */
+    object-position: top;
     background-color: #222; 
 }
 
@@ -183,38 +240,34 @@ nav ul li a.ativo {
     font-weight: bold;
 }
 
-/* Exigência 5: Elementos pares devem ser estilizados de forma diferente [cite: 19] */
 .lista-personagens li:nth-child(even) {
     background-color: #e9ecef;
     border: 1px solid #1a1a1a;
 }
 
-/* Efeito Hover do card utilizando a transição da Exigência 5 */
 .lista-personagens li:hover {
     transform: translateY(-8px);
     box-shadow: 0 12px 20px rgba(0,0,0,0.25);
 }
 
-/* =========================================================
-   SELETOR COM 4 NÍVEIS (Exigência 8) [cite: 28, 29, 30]
-   
-   COMENTÁRIO OBRIGATÓRIO:
-   Este seletor de 4 níveis seleciona as tags de link (a) 
-   que estão dentro de itens de lista (li), contidos na 
-   lista ordenada (ol) dentro da section de ID 
-   #conteudo-personagens.
-   Ação: Altera a cor do texto e adiciona um sublinhado 
-   quando o usuário passa o mouse especificamente sobre 
-   o link do nome do personagem.
-========================================================= */
+/*-- Seletor com 4 níveis --*/
 section#conteudo-personagens ol li a:hover {
     color: #cc0000;
     text-decoration: underline;
 }
+/*
+===========================================
+-- FIM PÁGINA 3 - LISTA DE PERSONAGENS -- =
+===========================================
+*/
 
-/* =========================================================
-   PÁGINA 4 - FORMULÁRIO [cite: 22, 23, 24]
-========================================================= */
+
+
+/*
+================================================
+-- COMEÇO ESTILIZAÇÃO PÁGINA 4 - FORMULÁRIO -- =
+================================================
+*/
 .form-section {
     width: 100%;
     background: white;
@@ -233,7 +286,6 @@ section#conteudo-personagens ol li a:hover {
     font-weight: bold;
 }
 
-/* Exigência 6: Estilizar todos os campos [cite: 24] */
 .formulario input[type="text"],
 .formulario input[type="email"],
 .formulario select,
@@ -275,22 +327,39 @@ section#conteudo-personagens ol li a:hover {
 .botoes input[type="reset"] {
     background-color: #cc0000;
 }
+/*
+=============================================
+-- FIM ESTILIZAÇÃO PÁGINA 4 - FORMULÁRIO -- =
+=============================================
+*/
 
-/* =========================================================
-   FOOTER
-========================================================= */
+
+
+/* 
+====================================
+-- COMEÇO ESTILIZAÇÃO DO FOOTER -- =
+====================================
+*/
 footer {
     background-color: #1a1a1a;
     color: #ccc;
+
     text-align: center;
+
     padding: 2em;
     margin-top: 2em;
+
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    clear: both; /* Mais uma propriedade de layout [cite: 31] */
+    clear: both;
 }
 
 footer a {
     color: #ffcc00;
 }
+/* 
+=================================
+-- FIM ESTILIZAÇÃO DO FOOTER -- =
+=================================
+*/
