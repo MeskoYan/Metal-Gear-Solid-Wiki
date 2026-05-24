@@ -1,0 +1,296 @@
+/* =========================================================
+   RESET BÁSICO E SETUP DO STICKY FOOTER
+========================================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    color: #333;
+    /* Exigência 7: Uso de min-width  */
+    min-width: 320px; 
+
+    /* Configuração do Sticky Footer com Flexbox */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* =========================================================
+   ELEMENTO QUE ACOMPANHA O SCROLL (Exigências 9) [cite: 31, 32, 33]
+   Este header usa a propriedade "position: sticky" junto com
+   "top: 0" para ficar fixo no topo da página ao rolar o scroll.
+   Também utiliza outras propriedades de layout como z-index,
+   display (flex), align-items e justify-content.
+========================================================= */
+.header-fixo {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #1a1a1a;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* Exigência 7: Trabalhar com unidades relativas (em/%)  */
+    padding: 1em 5%;
+}
+
+.header-fixo .logo {
+    max-width: 150px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5em;
+}
+
+nav ul li a {
+    color: #ccc;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5em;
+    /* Exigência 3: Utilizar a propriedade cursor no menu [cite: 12] */
+    cursor: pointer; 
+}
+
+nav ul li a:hover,
+nav ul li a.ativo {
+    color: #ffcc00;
+    border-bottom: 2px solid #ffcc00; /* Exigência 3: Menu indica página ativa [cite: 12] */
+}
+
+/* =========================================================
+   CONTAINER PRINCIPAL (Expande para empurrar o Footer)
+========================================================= */
+.container {
+    /* Exigência 7: Uso de max-width  */
+    max-width: 1200px;
+    margin: 2em auto;
+    padding: 0 5%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+    /* Faz o conteúdo principal preencher o espaço restante, empurrando o footer para baixo */
+    flex: 1; 
+}
+
+.conteudo-principal {
+    flex: 3;
+    background: white;
+    padding: 2em;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.conteudo-secundario {
+    flex: 1;
+    background: #e9ecef;
+    padding: 2em;
+    border-radius: 8px;
+    overflow: hidden; 
+}
+
+/* =========================================================
+   PÁGINA 2 - TABELA DOS JOGOS [cite: 14, 15, 16]
+========================================================= */
+.tabela-jogos {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1em;
+}
+
+.tabela-jogos th,
+.tabela-jogos td {
+    border: 1px solid #ddd;
+    padding: 1em;
+    text-align: center;
+}
+
+/* Exigência 4: Cabeçalho estilizado diferente das demais linhas [cite: 15] */
+.tabela-jogos th {
+    background-color: #1a1a1a;
+    color: white;
+}
+
+.linha-mesclada {
+    background-color: #e2e2e2;
+    text-transform: uppercase;
+}
+
+/* Exigência 4: Ao passar o cursor, a formatação da tabela muda [cite: 16] */
+.tabela-jogos tbody tr:hover {
+    background-color: #fff3cd;
+    cursor: crosshair;
+}
+
+/* =========================================================
+   PÁGINA 3 - LISTA DE PERSONAGENS (CARDS) [cite: 18, 19, 20]
+========================================================= */
+.largura-total {
+    width: 100%;
+}
+
+.lista-personagens {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5em;
+    justify-content: center;
+    margin-top: 1.5em;
+    width: 100%;
+}
+
+.lista-personagens li {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden; 
+    width: calc(25% - 1.5em); 
+    min-width: 250px; 
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    
+    /* Exigência 5: Propriedade transition ao passar pelos itens [cite: 20] */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.lista-personagens li img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    object-position: top; /* <-- Esta é a propriedade mágica que foca no rosto */
+    background-color: #222; 
+}
+
+.card-info {
+    padding: 1.2em;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.card-info h3 a {
+    color: #1a1a1a;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Exigência 5: Elementos pares devem ser estilizados de forma diferente [cite: 19] */
+.lista-personagens li:nth-child(even) {
+    background-color: #e9ecef;
+    border: 1px solid #1a1a1a;
+}
+
+/* Efeito Hover do card utilizando a transição da Exigência 5 */
+.lista-personagens li:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.25);
+}
+
+/* =========================================================
+   SELETOR COM 4 NÍVEIS (Exigência 8) [cite: 28, 29, 30]
+   
+   COMENTÁRIO OBRIGATÓRIO:
+   Este seletor de 4 níveis seleciona as tags de link (a) 
+   que estão dentro de itens de lista (li), contidos na 
+   lista ordenada (ol) dentro da section de ID 
+   #conteudo-personagens.
+   Ação: Altera a cor do texto e adiciona um sublinhado 
+   quando o usuário passa o mouse especificamente sobre 
+   o link do nome do personagem.
+========================================================= */
+section#conteudo-personagens ol li a:hover {
+    color: #cc0000;
+    text-decoration: underline;
+}
+
+/* =========================================================
+   PÁGINA 4 - FORMULÁRIO [cite: 22, 23, 24]
+========================================================= */
+.form-section {
+    width: 100%;
+    background: white;
+    padding: 2em;
+    border-radius: 8px;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin-top: 1em;
+}
+
+.formulario label {
+    font-weight: bold;
+}
+
+/* Exigência 6: Estilizar todos os campos [cite: 24] */
+.formulario input[type="text"],
+.formulario input[type="email"],
+.formulario select,
+.formulario textarea {
+    width: 100%;
+    padding: 0.8em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.formulario fieldset {
+    padding: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.checkbox-label {
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.botoes {
+    display: flex;
+    gap: 1em;
+}
+
+.botoes input {
+    padding: 1em 2em;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #1a1a1a;
+    color: white;
+    font-weight: bold;
+}
+
+.botoes input[type="reset"] {
+    background-color: #cc0000;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+footer {
+    background-color: #1a1a1a;
+    color: #ccc;
+    text-align: center;
+    padding: 2em;
+    margin-top: 2em;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    clear: both; /* Mais uma propriedade de layout [cite: 31] */
+}
+
+footer a {
+    color: #ffcc00;
+}

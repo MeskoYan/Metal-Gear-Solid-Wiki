@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Formulário de recrutamento para a Foxhound.">
+    <meta name="author" content="Seu Nome Aqui">
+    <meta name="keywords" content="Recrutamento, Foxhound, MGS, Formulário">
+    <title>Metal Gear Solid | Recrutamento</title>
+    <link rel="icon" href="imagens/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="CSS/estilo.css">
+</head>
+<body>
+    <header class="header-fixo">
+        <img src="imagens/logo.png" alt="Metal Gear Solid Logo" class="logo">
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="pag2.html">Jogos</a></li>
+                <li><a href="pag3.html">Personagens</a></li>
+                <li><a href="pag4.html" class="ativo">Recrutamento</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="form-section">
+            <h1>Ingresse na FOXHOUND (Feedback)</h1>
+            <form action="#" method="post" class="formulario">
+                
+                <label for="nome">Nome de Código (Text):</label>
+                <input type="text" id="nome" name="nome" required placeholder="Ex: Solid Snake">
+
+                <label for="email">E-mail de Contato (Email):</label>
+                <input type="email" id="email" name="email" required placeholder="codec@exemplo.com">
+
+                <label for="especialidade">Especialidade:</label>
+                <select id="especialidade" name="especialidade" required>
+                    <option value="">Selecione...</option>
+                    <option value="infiltracao">Infiltração (Stealth)</option>
+                    <option value="demolicao">Demolição</option>
+                    <option value="intel">Inteligência / Rádio</option>
+                </select>
+
+                <fieldset>
+                    <legend>Fidelidade a qual facção?</legend>
+                    <label><input type="radio" name="faccao" value="foxhound" required> FOXHOUND</label>
+                    <label><input type="radio" name="faccao" value="philanthropy"> Philanthropy</label>
+                    <label><input type="radio" name="faccao" value="patriots"> The Patriots</label>
+                </fieldset>
+
+                <label for="mensagem">Opinião / Relatório de Missão:</label>
+                <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
+
+                <label class="checkbox-label">
+                    <input type="checkbox" name="termos" required> Confirmo que li os protocolos de segurança
+                </label>
+
+                <div class="botoes">
+                    <input type="submit" value="Enviar Dados">
+                    <input type="reset" value="Limpar Formulário">
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>Endereço: Pelotas, RS | <a href="tel:+5553991509526">+5553991509526</a> | <a href="mailto:yanmesko@gmail.com">yanmesko@gmail.com</a></p>
+        <a href="https://www.konami.com/mg/" target="_blank">Site Oficial da Konami</a>
+    </footer>
+</body>
+</html>
