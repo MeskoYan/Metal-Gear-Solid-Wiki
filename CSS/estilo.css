@@ -411,7 +411,7 @@ footer a {
 */
 @media (max-width: 1119px) {
     .container {
-        
+
         margin: 1em auto;
         gap: 1em; 
         flex-direction: column;
