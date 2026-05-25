@@ -113,7 +113,6 @@ nav ul li a.ativo {
     flex-wrap: wrap;
     gap: 2em;
 
-    flex: 1; 
 }
 
 .conteudo-principal {
@@ -384,7 +383,7 @@ footer {
     text-align: center;
 
     padding: 2em;
-    margin-top: 2em;
+    margin-top: auto;
 
     display: flex;
     justify-content: space-around;
