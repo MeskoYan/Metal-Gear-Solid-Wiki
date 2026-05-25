@@ -412,14 +412,15 @@ footer a {
     /* 1. Reduz o espaço vazio geral e a distância entre os blocos */
     .container {
         margin: 1em auto;
-        gap: 1em; /* Diminui o buraco entre o conteúdo principal e o secundário */
+        gap: 1em; 
+        flex-direction: column; /* <--- O segredo para parar de esticar! */
     }
 
-    /* 2. Diminui o preenchimento interno (padding) das caixas */
+    /* Opcional: Garante que os blocos voltem ao seu tamanho natural na vertical */
     .conteudo-principal,
-    .conteudo-secundario,
-    .form-section {
-        padding: 1em; 
+    .conteudo-secundario {
+        flex: auto;
+        width: 100%;
     }
 
     /* 3. Reduz a margem do cabeçalho fixo */
