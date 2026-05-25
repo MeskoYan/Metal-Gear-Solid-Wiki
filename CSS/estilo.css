@@ -409,15 +409,14 @@ footer a {
 -- ESTILIZAÇÃO PRA WIDTHS BAIXAS -- =
 =====================================
 */
-@media (max-width: 768px) {
-    /* 1. Reduz o espaço vazio geral e a distância entre os blocos */
+@media (max-width: 1119px) {
     .container {
         margin: 1em auto;
         gap: 1em; 
-        flex-direction: column; /* <--- O segredo para parar de esticar! */
+        flex-direction: column;
+        align-items: stretch;
     }
 
-    /* Opcional: Garante que os blocos voltem ao seu tamanho natural na vertical */
     .conteudo-principal,
     .conteudo-secundario,
     .form-section
@@ -427,21 +426,18 @@ footer a {
         flex: auto;
     }
 
-    /* 3. Reduz a margem do cabeçalho fixo */
     .header-fixo {
         padding: 1em 5%;
-        flex-direction: column; /* Coloca a logo em cima e o menu embaixo */
+        flex-direction: column;
         gap: 1em;
     }
 
-    /* 4. Tabela com fonte ligeiramente menor para caber melhor */
     .tabela-jogos th,
     .tabela-jogos td {
         padding: 0.5em;
         font-size: 0.9em;
     }
 
-    /* 5. Cartões de personagens ocupam 100% da largura no celular ou dividem espaço com mais eficiência */
     .lista-personagens li {
         width: 100%;
         min-width: unset;
