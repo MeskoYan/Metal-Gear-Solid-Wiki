@@ -442,6 +442,21 @@ footer a {
         width: 100%;
         min-width: unset;
     }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.8em;
+    }
+    
+    .botoes {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .botoes input {
+        width: 100%;
+    }
 }
 /*
 =========================================
