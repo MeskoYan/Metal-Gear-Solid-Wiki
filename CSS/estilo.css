@@ -290,7 +290,7 @@ nav ul li a.ativo {
 }
 
 /*-- SELETOR COM 4 NÍVEIS --*/
-section#conteudo-personagens ol li a:hover {
+section#conteudo-personagens ol li h3:hover {
     color: #cc0000;
     text-decoration: underline;
 }
